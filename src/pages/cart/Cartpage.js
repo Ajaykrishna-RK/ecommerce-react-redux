@@ -64,7 +64,7 @@ const handleDecrease = (item) =>{
 
 <div className='cart-page-main'>
 
-<div className='cart-page-main-div'>
+<div className='cart-page-main-div' key={item.id}>
 <Card sx={cartStyle}>
     <img src={item.image} className="cart-page-image" alt="" srcset="" />
   
