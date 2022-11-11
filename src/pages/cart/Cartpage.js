@@ -60,11 +60,11 @@ const handleDecrease = (item) =>{
 
 
 
-<Grid item  xs={12} >
+<Grid item  xs={12} key={item.id} >
 
 <div className='cart-page-main'>
 
-<div className='cart-page-main-div' key={item.id}>
+<div className='cart-page-main-div' >
 <Card sx={cartStyle}>
     <img src={item.image} className="cart-page-image" alt="" srcset="" />
   
