@@ -6,36 +6,29 @@ import Header from './components/header/Header';
 import Productlist from './components/productlist/Productlist';
 import { addUser} from './redux/Cart';
 import axios from "axios"
+import {  Routes, Route } from "react-router-dom";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Cartpage from './pages/cart/Cartpage';
 
 function App() {
 
-const counterRef = useRef(1);
 
-const dispatch = useDispatch()
 
-const {userDetail} = useSelector((state)=>state.cart)
-useEffect(() => { 
-  fetchUser(counterRef.current)
-}, [] )
 
-const addMoreUsers = ()=>{
-fetchUser( ++ counterRef.current)
-}
-
-const fetchUser =  async (id) =>{
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`) 
-
-  
-  dispatch(addUser(response.data))
-}
 
   return (
     <div className="App">
-   
-  <Header/>
-  <button onClick={addMoreUsers}>Add users</button>
-  <pre style={{color:"#fff"}}>{JSON.stringify(userDetail,undefined,4)}</pre>
-  <Productlist/>
+       <Header/>
+   <ToastContainer/>
+  
+  
+   <Routes>
+        <Route path="/" element={<Productlist/>}/>
+        
+        <Route path="/cartpage" element={<Cartpage/>}/>
+      </Routes>
+
 
     </div>
   );

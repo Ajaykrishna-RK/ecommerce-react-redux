@@ -1,91 +1,47 @@
-:root {
-    --transition: all 0.2s ease-in-out;
-    --bg-circles: rgb(95, 199, 255);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.product-card-main-div{
+  margin-top: 50px;
+  margin-left: 80px;
+  font-family: 'Poppins', sans-serif;
+
 }
 
-section {
+#product-card{
+    max-width: 350px;
+    height: 100vh;
+   box-shadow: 0px 0px 7px 0px rgb(116, 105, 105)
+}
+/* #product-card:hover{
+    transform: scale(1.01);
+    transition: 0.4s;
+} */
+
+.product-image{
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 25px;
+    justify-content: center;
+    margin: auto;
+    height: 300px;
+    width: 300px;
 }
 
-.product-container {
-    max-width: 300px;
-    margin-top: 50px;
-    background-color: #27293d;
-    position: relative;
+    
+    .product-image:hover{
+        transition: 0.4s;
+   transform: scale(1.04);
+}
+
+.add-to-cart-main{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
-}
+    justify-content: center;
 
-.product-container::before {
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 32%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--bg-circles);
-    border-radius: 50%;
-    transition: all 0.4s ease-in-out;
 }
-
-.product-container.active::before,
-.product-container:hover::before {
-    width: 250px;
-    height: 250px;
-}
-
-.product-container.active::after,
-.product-container::after {
-    content: "";
-    width: 90px;
-    height: 90px;
-    position: absolute;
-    bottom: -90px;
-    left: -90px;
-    background-color: var(--bg-circles);
-    border-radius: 50%;
-    transition: var(--transition);
-}
-
-.product-container.active::after,
-.product-container:hover::after {
-    bottom: -35px;
-    left: -35px;
-}
-
-.product-container img {
-    width: 280px;
-    height: 210px;
-    margin: 40px 0;
-    object-fit: contain;
-    transform: translateY(15px);
-    transition: var(--transition);
-}
-
-.product-container.active img,
-.product-container:hover img {
-    transform: translateY(-20px) scale(0.9);
-}
-
-.product-container h3 {
-    color: white;
-    font-weight: normal;
-    font-size: 16px;
-    position: relative;
-    transition: var(--transition);
-    top: 0;
-}
-
-.product-container.active h3,
-.product-container:hover h3 {
-    color: whitesmoke;
-    font-weight: normal;
-    font-size: 16px;
-    top: -25px;
+.add-to-cart{
+    background-color:#2874f0;
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
 }

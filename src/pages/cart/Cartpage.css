@@ -1,0 +1,86 @@
+.empty-cart{
+    font-size: 25px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cart-page-main{
+ margin: auto;
+justify-content: center;
+align-items: center;
+display: flex;
+
+width: 40%;
+
+}
+.cart-page-main-div{
+    margin-top: 50px;
+}
+
+
+.cart-page-image{
+    width: 100px;
+    height: 100px;
+}
+.cart-page-text{
+   justify-content: center;
+   text-align: center;
+}
+
+.cart-page-proceed-remove{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cart-page-remove{
+   margin-top: 10px;
+width: 100px;
+height: 40px;
+border: none;
+border-radius: 5px;
+background-color: red;
+color: #fff;
+
+}
+.total-amount-div{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+}
+.inc-dec-button{
+    width: 30px;
+  
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(107, 107, 221);
+    color: #fff;
+}
+.counting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.clear-cart{
+    justify-content: flex-end;
+   align-items: flex-end;
+   display: flex; 
+
+}
+
+.clear-cart-button{
+    
+    height: 40px;
+    width: 100px;
+    border: none;
+border-radius: 5px;
+background-color: rgb(161, 173, 189);
+color:#000;
+}

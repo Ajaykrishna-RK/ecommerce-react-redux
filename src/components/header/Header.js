@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import "./Header.css"
-
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {Link } from "react-router-dom";
+import { HiShoppingCart } from "react-icons/hi";
 const Header = () => {
-  const {cartList} = useSelector((state)=>state.cart)
+  const {cartItems} = useSelector((state)=>state.cart)
 
-const totalCartCount = cartList.reduce((acc,value)=>(acc += value.count),0)
+
 
 
 
@@ -14,11 +15,14 @@ const totalCartCount = cartList.reduce((acc,value)=>(acc += value.count),0)
     <header>
     
     <div className='container'>
-
-    <h1>LOGO</h1>
-    <div className='.right-section'>
-<div className='cart-count-header'>{totalCartCount}</div>
-  <h1>CART</h1>
+<div className='logo'>
+<Link to="/"> <h2  className='shopping-cart-icon'>SHOPPING CART</h2></Link>
+</div>
+    
+    <div className='cart'>
+<div className='cart-count-header'></div>
+ 
+<Link to="/cartpage"> <p  className='shopping-cart-icon'><HiShoppingCart/></p></Link>
 
 </div>
     </div>

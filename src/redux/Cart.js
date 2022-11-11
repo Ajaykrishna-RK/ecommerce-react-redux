@@ -1,63 +1,72 @@
-import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios"
+import { createSlice} from "@reduxjs/toolkit";
+import { toast } from 'react-toastify';
 
-
-
- 
 
 const initialState = {
-cartList:[],
-cartCount:0,
-userDetail:[]
+cartItems: localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem("cartItems")):[],
+cartTotalCount:0,
+cartTotalAmount:0
 }
 
 
-const cartSlice = createSlice({
-    name:"cart",
-    initialState:initialState,
-    reducers:{
-        addUser:(state,action)=>{
-            state.userDetail.push(action.payload)
-        },
-        addToCart:(state,action)=>{
-            const itemExist = state.cartList.find((item) => item.id === action.payload.id)
-            if(itemExist){
-                state.cartList.forEach((item) => {
-                    if(item?.id === action.payload.id){
-                        item.count = 1
-                    }else{
-                        
-                    }
-                  })
-                  return;
-            }
-            state.cartList.push({
-                ...action.payload,
-                count:1
-            })
 
+const cartslice =  createSlice({
+name:"cart",
+initialState:initialState,
+reducers:{
+addToCart(state,action){
+ const itemIndex = state.cartItems.findIndex((item)=> item.id === action.payload.id)
 
-        },
-        increment:(state,action)=>{
-           const productId = action.payload
-          state.cartList.forEach((item)=>{
-            if(item?.id === productId){
-                item.count ++
-            }
-          })
-        },
-        decrement:(state,action)=>{
-            const productId = action.payload
-          state.cartList.forEach((item)=>{
-            if(item?.id === productId){
-                item.count --
-            }
-          })
-        }
-    },
-  
+ if (itemIndex >= 0  ){
+state.cartItems[itemIndex].cartCount +=1
+toast.info(`increased ${state.cartItems[itemIndex].title}  quantity`)
+ }
+ else{
+    const tempProduct = {
+        ...action.payload,
+        cartCount:1
+    }
+    state.cartItems.push(tempProduct)
+    toast.success(`${action.payload.title} added to cart`)
+ }
+ localStorage.setItem("cartItems",JSON.stringify(state.cartItems))
+
+    
+},
+removeFromcart(state,action){
+   const removeCart = state.cartItems.filter((cartItem)=>
+        cartItem.id !== action.payload.id
+    );
+    state.cartItems = removeCart
+    localStorage.setItem("cartItems",JSON.stringify(state.cartItems))
+    toast.error(`${action.payload.title} remove from cart`)
+},
+decreaseCart(state,action){
+    const itemIndex = state.cartItems.findIndex((item)=> item.id === action.payload.id)
+
+    if(state.cartItems[itemIndex].cartCount > 1){
+        state.cartItems[itemIndex].cartCount -= 1
+    }
+    else if(state.cartItems[itemIndex].cartCount === 1){
+        const removeCart = state.cartItems.filter((cartItem)=>
+        cartItem.id !== action.payload.id
+    );
+    state.cartItems = removeCart
+    localStorage.setItem("cartItems",JSON.stringify(state.cartItems))
+    toast.error(`${action.payload.title} remove from cart`)
+    }
+},
+increaseCart(state,action){
+    const itemIndex = state.cartItems.findIndex((item)=> item.id === action.payload.id)
+    state.cartItems[itemIndex].cartCount +=1
+},
+clearCart(state,action){
+    state.cartItems = []
+    toast.error("Cart cleared")
+}
+
+}
 })
-
-export const {addToCart,increment,decrement,addUser} = cartSlice.actions
-
-export default cartSlice.reducer;
+ 
+export const {addToCart,removeFromcart,decreaseCart,increaseCart,clearCart} = cartslice.actions
+export default cartslice.reducer
