@@ -1,12 +1,14 @@
 import { Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
-import { Box } from '@mui/system'
-import React from 'react'
+
+import {Link } from "react-router-dom";
+
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiDollar } from "react-icons/bi";
 import "./Cartpage.css"
 
 import Button from '../../components/Buttons/Button';
-import { removeFromcart ,decreaseCart,increaseCart,clearCart} from '../../redux/Cart';
+import { removeFromcart ,decreaseCart,increaseCart,clearCart, totalAmount, calculateTotals} from '../../redux/Cart';
 
 const cartStyle = {
     display:"flex"
@@ -16,7 +18,13 @@ const cartStyle = {
 const Cartpage = () => {
   const {cartItems} = useSelector((state)=>state.cart)
 
+  const {cartTotalAmount} =  useSelector((state)=>state.cart)
+  
 const dispatch= useDispatch()
+
+useEffect(()=>{
+  dispatch(calculateTotals())
+},[cartItems])
 
 const handleRemove = (item) =>{
 dispatch(removeFromcart(item))
@@ -40,7 +48,13 @@ const handleDecrease = (item) =>{
 {cartItems.length === 0 ? (
 
     <div className='empty-cart'>
-        <p>Cart is empty</p>
+      <ul>
+     <li><p>Cart is empty  </p></li> 
+      
+     
+     <Link to="/" ><small>Continue Shopping</small></Link>  
+      </ul>
+        
     </div>
 
 
@@ -109,7 +123,7 @@ const handleDecrease = (item) =>{
 
 <div className='total-amount-div'>
   
-<p> Total <BiDollar/> </p>
+<p> Total <BiDollar/> {cartTotalAmount} </p>
 </div>
 </Grid>
 

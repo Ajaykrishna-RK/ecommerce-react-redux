@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios" 
 import Button from '../Buttons/Button';
 import { addToCart } from '../../redux/Cart';
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,9 +19,11 @@ const Productlist = () => {
 
 const dispatch = useDispatch()
 
-const {cartItems} = useSelector((state)=>state.cart)
+const {cartDetails} = useSelector((state)=>state.cart)
 
-console.log(cartItems)
+console.log(cartDetails)
+
+
 
 const handleAddToCart = (product)=>{
 dispatch(addToCart(product))
@@ -50,22 +53,31 @@ useEffect(()=>{
   setLoading(false)
 })
 },[])
-  
+
+
+
+
+
+
   return (
+    <div >
   
+ 
     <div className='product-card-main-div'>
      <div>{loading && <h1>Loading.....</h1>}</div>
      <Grid container spacing={5}>
 {data.map((product)=>(
 
   <Grid item  xs={12} sm={6} md={4}>
+
   <Card  id="product-card" >
-    
+    <Link to={`/productdetials/${product.id}`}  >
   <img
   className='product-image'
   src={product.image}
   alt=""
   />
+  </Link>
   <CardContent>
   <h3>  {product.title}</h3>
    <div>
@@ -81,6 +93,7 @@ useEffect(()=>{
   </div>
  
 </Card>  
+
 </Grid>
 
 ))}
@@ -89,7 +102,7 @@ useEffect(()=>{
      
 </div>
   
-  
+</div>
   )
 }
 
