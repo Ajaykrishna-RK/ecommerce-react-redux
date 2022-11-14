@@ -11,6 +11,8 @@ import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cartpage from './pages/cart/Cartpage';
 
+import Cartdetails from './components/Cartdetails';
+
 
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
        <Header/>
    
    <ToastContainer/>
-  
+  {/* <Cartdetails/> */}
   
    <Routes>
         <Route path="/" element={<Productlist/>}/>

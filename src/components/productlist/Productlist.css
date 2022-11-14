@@ -9,7 +9,7 @@
 
 #product-card{
     max-width: 350px;
-    height: 100vh;
+
    box-shadow: 0px 0px 7px 0px rgb(116, 105, 105)
 }
 /* #product-card:hover{
@@ -28,20 +28,22 @@
     
     .product-image:hover{
         transition: 0.4s;
-   transform: scale(1.04);
+   transform: scale(1.01);
 }
 
-.add-to-cart-main{
-    display: flex;
-    justify-content: center;
+#add-to-cart-main{
+
+
 
 }
 .add-to-cart{
+    
     background-color:#2874f0;
     color: #fff;
     height: 40px;
-    width: 100px;
+    width: 100%;
     font-size: 12px;
+    text-align: center;
     border: none;
     border-radius: 5px;
 }
