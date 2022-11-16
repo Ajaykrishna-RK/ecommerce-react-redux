@@ -58,19 +58,19 @@ const dispatch = useDispatch()
 
 <Grid item xs={12} sm={12} md={6}>
 
-<div>
-  <p>{selectProduct.category}</p>
- <h2>{selectProduct.title}</h2>
+<div className='product-detail-category-title'>
+  <p className='product-detail-category'>{selectProduct.category}</p>
+ <h2 className='product-detail-title'>{selectProduct.title}</h2>
 
 </div>
 <div>
 
 </div>
-<div>
-<h3>Price : <span style={bold}><BiDollar/>{selectProduct.price}</span> </h3>
+<div  className='product-detail-price-div'>
+<h3  className='product-detail-price' >Price : <span style={bold}><BiDollar/>{selectProduct.price}</span> </h3>
 </div>
-<div>
- <p>{selectProduct.description}</p>
+<div className='product-detail-description-div'>
+ <p  className='product-detail-description' >{selectProduct.description}</p>
 </div>
 
 <div className='product-detail-buttons'>
