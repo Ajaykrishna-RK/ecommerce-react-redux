@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from 'react'
 import "./Productlist.css"
-import  {  CardContent,  Grid } from '@mui/material';
+import  {  Box, CardContent,  Grid, IconButton } from '@mui/material';
 import { BiDollar } from "react-icons/bi";
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,18 +19,37 @@ import CardMedia from '@mui/material/CardMedia';
 // import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Card, Icon, Image } from 'semantic-ui-react'
+import { apiDatas } from '../../redux/Fetchapi';
+import { AiFillStar } from "react-icons/ai";
 
+// link style
+const linkStyle = {
+  textDecoration:"none",
+  color:"#111"
 
-const baseURL = "https://fakestoreapi.com/products";
+}
+
 
 
 const Productlist = () => {
 
+
+
+
 const dispatch = useDispatch()
 
-const {cartDetails} = useSelector((state)=>state.cart)
+const {apiData,loading} = useSelector((state)=>state.api)
 
-console.log(cartDetails)
+
+
+
+
+
+useEffect(()=>{
+dispatch(apiDatas())
+
+
+},[])
 
 
 
@@ -40,39 +59,10 @@ dispatch(addToCart(product))
 
 
 
-const [loading, setLoading] = useState(false)
-
-const [data, setData] = useState([])
-
-useEffect(()=>{
-  setLoading(true)
-  axios({
-    method:"GET",
-    url:baseURL,
-  })
-.then((res)=>{
-  
-  setData(res.data)
-
-})
-.catch((err)=>{
-  console.log(err)
-})
-.finally(()=>{
-  setLoading(false)
-})
-},[])
 
 
-const [open, setOpen] = React.useState(false);
 
-const handleClickOpen = () => {
-  setOpen(true);
-};
 
-const handleClose = () => {
-  setOpen(false);
-};
 
 
 
@@ -80,54 +70,62 @@ const handleClose = () => {
 
 
   return (
-    <div >
-  
-
-
-
+    <div  style={{marginTop:"170px"}}>
+   
+   
  
-    <div className='product-card-main-div'>
-     <div>{loading && <h1>Loading.....</h1>}</div>
-     <Grid container spacing={5}>
-{data.map((product)=>(
+   <div className='product-card-main-div'>
+     <div> {loading && <h1>loading.....</h1>}</div>
+     <Grid container spacing={4}>
+{apiData.map((product,key)=>(
 
-  <Grid item  xs={12} sm={6} md={4}>
+  <Grid item  xs={12} sm={6} md={3}  key={product.id}>
 
-<Card  id="product-card">
-<img
+
+
+<Card  id="product-card" >
+     
+<Link to={`/product/${product.id}`} style={linkStyle}>
+  <div>
+
+  
+  <img
   className='product-image'
   src={product.image}
   alt=""
   />
-
-    <Card.Content>
-    <h3>  {product.title}</h3>
- 
-      <Card.Description>
-    
- 
-      </Card.Description>
-    </Card.Content>
-    <div>
-   <p>price: <BiDollar/> {product.price} </p>
+   
    </div>
 
-    <Card.Content extra>
-
+  <CardContent>
+    <div className='card-content'>
+  <p>{product.category}</p>
+  <p className='product-title'>  {`${product.title.slice(0,18)}`}...</p>
+ 
+   <p>price: <BiDollar/> {product.price} </p>
   
-  
-        <Button className="add-to-cart" onClick={()=>handleAddToCart(product)}> Add to cart </Button>
-   
-    </Card.Content>
-  </Card>
+   </div>
 
+   <Button  className="rating-button">{product.rating.rate} <AiFillStar/></Button> 
+  </CardContent>
+  </Link>
+ 
+  <CardActions>
+
+
+<Button className="add-to-cart" onClick={()=>handleAddToCart(product)}> Add to cart </Button>
+
+
+  </CardActions>
+</Card>  
+  
 </Grid>
 
 ))}
 
 </Grid>    
-     
-</div>
+
+</div> 
   
 
 

@@ -3,10 +3,11 @@ import { toast } from 'react-toastify';
 
 
 const initialState = {
+   
 cartItems: localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem("cartItems")):[],
 cartTotalCount:0,
 cartTotalAmount:0,
-selectedItem:{}
+
 }
 
 

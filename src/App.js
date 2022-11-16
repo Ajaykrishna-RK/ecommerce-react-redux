@@ -10,8 +10,11 @@ import {  Routes, Route } from "react-router-dom";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cartpage from './pages/cart/Cartpage';
+import Productdetail from './components/productdetail/Productdetail';
 
-import Cartdetails from './components/Cartdetails';
+
+
+
 
 
 
@@ -20,20 +23,21 @@ function App() {
 
 
 
-
   return (
     <div className="App">
        <Header/>
    
+
+ 
+   
    <ToastContainer/>
-  {/* <Cartdetails/> */}
   
    <Routes>
         <Route path="/" element={<Productlist/>}/>
         
         <Route path="/cartpage" element={<Cartpage/>}/>
 
-       
+        <Route path="/product/:id" element={<Productdetail/>}/>
       
       </Routes>
 

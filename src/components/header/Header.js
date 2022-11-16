@@ -12,7 +12,7 @@ const Header = () => {
   const {cartItems} = useSelector((state)=>state.cart)
 
   const {cartTotalCount} = useSelector((state)=>state.cart)
-console.log(cartTotalCount)
+
 
 const dispatch= useDispatch()
 

@@ -1,0 +1,30 @@
+.product-detail-img{
+    width: 500px;
+    height: 500px;
+}
+.product-detail-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.product-detail-add-to-cart{
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    width: 300px;
+    font-size: 20px;
+    background-color:#2874f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.product-detail-continue-shopping{
+    height: 40px;
+    color:#2874f0; 
+    text-align: center;
+    border: none;
+    width: 280px;
+    font-size: 17px;
+    /* background-color:#2874f0; */
+    border-radius: 5px;
+    cursor: pointer
+}
