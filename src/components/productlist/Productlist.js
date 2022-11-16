@@ -1,26 +1,18 @@
-import React, { useEffect, useState }  from 'react'
+import React, { useEffect }  from 'react'
 import "./Productlist.css"
-import  {  Box, CardContent,  Grid, IconButton } from '@mui/material';
+import  {   CardContent,  Grid, CircularProgress, Card } from '@mui/material';
+
 import { BiDollar } from "react-icons/bi";
-
 import { useDispatch, useSelector } from 'react-redux'
+import { AiFillStar } from "react-icons/ai";
+import CardActions from '@mui/material/CardActions';
 
-import axios from "axios" 
 import Button from '../Buttons/Button';
 import { addToCart } from '../../redux/Cart';
 import { Link } from 'react-router-dom';
-
-// import Button from '@mui/material/Button';
-
-// import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-// import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-// import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Card, Icon, Image } from 'semantic-ui-react'
 import { apiDatas } from '../../redux/Fetchapi';
-import { AiFillStar } from "react-icons/ai";
+
+
 
 // link style
 const linkStyle = {
@@ -49,7 +41,7 @@ useEffect(()=>{
 dispatch(apiDatas())
 
 
-},[])
+},[dispatch])
 
 
 
@@ -75,7 +67,7 @@ dispatch(addToCart(product))
    
  
    <div className='product-card-main-div'>
-     <div> {loading && <h1>loading.....</h1>}</div>
+     <div className='loading-circle'> {loading && <CircularProgress />}</div>
      <Grid container spacing={4}>
 {apiData.map((product,key)=>(
 

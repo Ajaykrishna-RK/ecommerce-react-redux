@@ -7,7 +7,7 @@ import  {   Grid  } from '@mui/material';
 import { BiDollar } from "react-icons/bi";
 import "./Productdetail.css"
 import Button from '../Buttons/Button'
-import { AiFillStar } from "react-icons/ai";
+
 import { addToCart } from '../../redux/Cart'
 
 

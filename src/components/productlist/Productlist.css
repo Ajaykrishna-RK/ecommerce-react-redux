@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+
+.loading-circle{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+}
+
 .product-card-main-div{
   margin-top: 170px;
 
