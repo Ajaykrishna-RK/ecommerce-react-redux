@@ -38,6 +38,8 @@ function App() {
         <Route path="/cartpage" element={<Cartpage/>}/>
 
         <Route path="/product/:id" element={<Productdetail/>}/>
+
+        <Route path="/product/:category" element={<Productdetail/>}/>
       
       </Routes>
 

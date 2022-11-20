@@ -6,6 +6,8 @@ import {Link } from "react-router-dom";
 import { HiShoppingCart } from "react-icons/hi";
 import { AppBar } from '@mui/material';
 import { calculateTotals } from '../../redux/Cart';
+import { Input, Menu } from 'semantic-ui-react'
+import Dropdown from './dropdown/Dropdown';
 const Header = () => {
 
 
@@ -23,19 +25,25 @@ useEffect(()=>{
 
 
 const appbar={
-backgroundColor:"#fff"
+backgroundColor:"#fff",
+
+
 }
 
 
   return (
+    <div>
     <header>
 
     <AppBar  sx={appbar}>
      
     <div className='container'>
 <div className='logo'>
-<Link to="/"> <h2  className='shopping-cart-icon'>SHOPPING CART</h2></Link>
+<Link to="/"> <h2  className='shopping-cart-text'>SHOPPING CART</h2></Link>
 </div>
+
+   
+
     
     <div className='cart'>
 <div className='cart-count-header'>{cartTotalCount}</div>
@@ -48,8 +56,7 @@ backgroundColor:"#fff"
     
     
     
-    
-    
+   
     
     
     
@@ -61,6 +68,8 @@ backgroundColor:"#fff"
     </AppBar>
     
     </header>
+    
+     </div>
   )
 }
 

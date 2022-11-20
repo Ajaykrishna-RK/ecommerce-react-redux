@@ -1,0 +1,33 @@
+
+
+
+
+.banner-image-main{
+ position: relative;
+ height: 100vh;
+ width: 100%;
+ background-color:#2874f0;
+ }
+
+ .banner-text {
+position: absolute;
+top: 250px;
+left: 50px;
+font-size: 60px;
+color: #fff;
+
+}
+.cart-image-main{
+    position: absolute;
+    top: 100px;
+    left: 99vh;
+}
+.cart-image{
+    width: 600px;
+    height: 600px;
+}
+
+
+
+
+

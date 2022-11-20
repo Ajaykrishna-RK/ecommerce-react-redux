@@ -13,11 +13,21 @@ header .container {
   
   
 }
+
+
+
 header .logo{
     padding-left: 30px;
     margin-top: 15px;
 }
+.shopping-cart-text{
+    color:#111;
+    
+    }
+.shopping-cart-icon{
+color:#2874f0;
 
+}
 header .cart-count-header {
     width: 20px;
     height: 20px;
@@ -38,3 +48,4 @@ header .cart {
     padding-right: 30px;
    font-size: 50px;
 }
+

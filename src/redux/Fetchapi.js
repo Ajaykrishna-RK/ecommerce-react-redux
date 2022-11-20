@@ -5,6 +5,7 @@ import axios from "axios"
 
 export const apiDatas = createAsyncThunk("api/ apiDatas",async () =>{
     const response = await axios.get("https://fakestoreapi.com/products")
+  
     return response.data
 })
 
@@ -12,6 +13,7 @@ export const selectedProductApi = createAsyncThunk("api/selectedProduct",async (
     const response = await axios.get(`https://fakestoreapi.com/products/${id}`)
     return response.data
 })
+
 
 
 const initialState = {

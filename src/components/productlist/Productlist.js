@@ -1,4 +1,4 @@
-import React, { useEffect }  from 'react'
+import React, { useEffect, useRef, useState }  from 'react'
 import "./Productlist.css"
 import  {   CardContent,  Grid, CircularProgress, Card } from '@mui/material';
 
@@ -11,6 +11,8 @@ import Button from '../Buttons/Button';
 import { addToCart } from '../../redux/Cart';
 import { Link } from 'react-router-dom';
 import { apiDatas } from '../../redux/Fetchapi';
+import {motion,useAnimation} from "framer-motion"
+import Banner from '../banner/Banner';
 
 
 
@@ -20,7 +22,11 @@ const linkStyle = {
   color:"#111"
 
 }
+// margin style
+const margin = {
+  marginTop:"100px"
 
+}
 
 
 const Productlist = () => {
@@ -57,16 +63,21 @@ dispatch(addToCart(product))
 
 
 
-
+  
+  
 
 
 
   return (
-    <div  style={{marginTop:"170px"}}>
    
+    <div  >
+   <Banner/>
+
+
+   <div
    
- 
-   <div className='product-card-main-div'>
+   className='product-card-main-div' >
+
      <div className='loading-circle'> {loading && <CircularProgress />}</div>
      <Grid container spacing={4}>
 {apiData.map((product,key)=>(
