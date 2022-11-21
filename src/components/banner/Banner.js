@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import React from 'react'
 
 import banner from "../../Assests/bannerImage/imagecart.jpg"
-import bannercart from "../../Assests/bannerImage/banner-img-removebg.png"
+import bannercart from "../../Assests/bannerImage/bike-boy-new.png"
 // import bannerImg from "../../Assests/bannerImage/banner.jpg"
 import bannerImg from "../../Assests/bannerImage/images.jfif"
 import bannerImagetwo from "../../Assests/bannerImage/bannerimagetwo.jpg"
@@ -15,13 +15,13 @@ const Banner = () => {
     const banneranimation = {
         hidden:{
        
-        y:-15,
+       scale:1.2,
             opacity:1,
          
         },
         visible:{
          
-            y:0,
+            scale:1.1,
           opacity:1,
       
 
