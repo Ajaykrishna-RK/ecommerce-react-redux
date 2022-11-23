@@ -71,7 +71,7 @@ dispatch(addToCart(product))
   return (
    
     <div  >
-   <Banner/>
+   {/* <Banner/> */}
 
 
    <div

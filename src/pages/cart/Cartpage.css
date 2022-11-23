@@ -12,22 +12,31 @@
 
 
 .cart-page-main{
- margin: auto;
-justify-content: center;
-align-items: center;
+
+
 display: flex;
 
-width: 40%;
+
 
 }
 .cart-page-main-div{
-    margin-top: 170px;
+    margin-top: 150px;
 }
 
 
+.cart-page-image-main{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+
+
 .cart-page-image{
-    width: 100px;
-    height: 100px;
+ 
+    width: 200px;
+    height: 200px;
 }
 .cart-page-text{
    justify-content: center;
@@ -42,28 +51,46 @@ width: 40%;
 }
 
 .cart-page-remove{
-   margin-top: 10px;
-width: 100px;
-height: 40px;
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+font-size: 17px;
 border: none;
 border-radius: 5px;
-background-color: red;
-color: #fff;
+background-color:#fff;
+color:red;
+
 
 }
+
+.cart-page-buy{
+    background-color:#2874f0 ;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+   
+    border-radius: 5px;
+}
+
+#buy-delete-actions{
+margin-top: -30px;
+}
+
 .total-amount-div{
     justify-content: center;
     align-items: center;
     margin: auto;
     text-align: center;
     font-size: 30px;
+    margin-top: 200px;
 }
 .inc-dec-button{
     width: 30px;
   
     border: none;
     border-radius: 5px;
-    background-color: rgb(107, 107, 221);
+    background-color:#2874f0;
     color: #fff;
 }
 .counting{
@@ -88,3 +115,4 @@ border-radius: 5px;
 background-color: rgb(161, 173, 189);
 color:#000;
 }
+

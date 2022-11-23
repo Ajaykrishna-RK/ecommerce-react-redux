@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import "./Header.css"
 
 import {Link } from "react-router-dom";
+import logo from "../../Assests/bannerImage/banner-image.png"
 import { HiShoppingCart } from "react-icons/hi";
 import { AppBar } from '@mui/material';
 import { calculateTotals } from '../../redux/Cart';
-import { Input, Menu } from 'semantic-ui-react'
-import Dropdown from './dropdown/Dropdown';
+
 const Header = () => {
 
 
@@ -39,7 +39,7 @@ backgroundColor:"#fff",
      
     <div className='container'>
 <div className='logo'>
-<Link to="/"> <h2  className='shopping-cart-text'>SHOPPING CART</h2></Link>
+<Link to="/"> <img className='logo-img' src={logo} alt="" srcset="" /></Link>
 </div>
 
    
