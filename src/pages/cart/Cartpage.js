@@ -1,6 +1,7 @@
-import { Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import { Card, CardActions, CardContent, CardMedia, Grid, TableBody, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 
 import {Link } from "react-router-dom";
+import {Table} from 'react-bootstrap'
 
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,8 +15,13 @@ import { width } from '@mui/system';
 
 const cartStyle = {
     display:"flex",
+  width:600
     
 }
+
+
+
+
 
 
 const Cartpage = () => {
@@ -65,29 +71,33 @@ const handleDecrease = (item) =>{
   <div>
     
 
+   
+
 <Grid container spacing={2}>
   
+
+
+
     {cartItems.map((item,key)=>(
 
 
 
-<Grid item xs={12} md={6} >
+<Grid item xs={12}>
 
 <div className='cart-page-main'>
 
 <div className='cart-page-main-div' >
 <Card style={cartStyle}>
-
-  <div className='cart-page-image-main'>
+<div className='cart-page-image-main'>
     <img src={item.image} className="cart-page-image" alt="" srcset="" />
    
     </div>
     
         <div className='cart-page-text'>
      
-        <h4 >
+        <p >
             {item.title}
-          </h4>
+          </p>
           <p >
             {item.category}
           </p>
@@ -107,18 +117,15 @@ const handleDecrease = (item) =>{
 
 
       </CardActions>
-      <CardActions id='buy-delete-actions'>
-        
-      <Button className="cart-page-buy" onClick={()=>handleRemove(item)}>Buynow</Button>
-
-      </CardActions>
+    
 
       <Button className="cart-page-remove" onClick={()=>handleRemove(item)}><BsTrash/></Button>
      
      <div>
 
      </div>
-    </Card>
+
+</Card>
     </div>
 
 </div>
@@ -127,26 +134,36 @@ const handleDecrease = (item) =>{
 
 
 
+
+
+
 ))}
 
-<Grid item sm={6}>
 
-<div className='total-amount-div'>
-  
-<p> Total <BiDollar/> {cartTotalAmount} </p>
-</div>
-</Grid>
-</Grid>
 
+</Grid>
 
 <Grid container>
       <Grid item xs={12}>
+        <div className='total-amount-div-main'>
+        <Card style={{width:"400px" ,marginTop:"20px"}}>
+        <CardContent>
+      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+     <h1>{cartTotalAmount}</h1>
+      </Typography>
+   
+    
+    </CardContent>
+   
+        </Card>
+        </div>
         <div className="clear-cart">
         <Button className="clear-cart-button" onClick={()=>handleClear()}>clearCart</Button>
         </div>
 
       </Grid>
     </Grid>
+
   </div>
 )}
 
