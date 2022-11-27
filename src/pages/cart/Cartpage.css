@@ -36,7 +36,10 @@ margin: auto;
     display: flex;
 }
 
-
+.card-style{
+    display: flex;
+    width: 600px;
+}
 
 
 .cart-page-image{
@@ -45,6 +48,7 @@ margin: auto;
     height: 200px;
 }
 .cart-page-text{
+    margin-left: 20px;
    justify-content: center;
    text-align: center;
    font-size: 17px;
@@ -96,8 +100,15 @@ margin: auto;
    justify-content: center;
    align-items: center;
    margin: auto;
- 
+
    
+}
+.quantity-main-div{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: auto;
+
 }
 .inc-dec-button{
     width: 30px;
@@ -129,5 +140,97 @@ margin: auto;
 border-radius: 5px;
 background-color: rgb(161, 173, 189);
 color:#000;
+}
+
+.total-main li{
+  list-style-type: none;
+  
+}
+
+.total-items{
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+}
+.total-price{
+    color: #000;
+    font-weight: bold;
+    font-size: 30px;
+   
+}
+
+/* responsive */
+
+@media only screen and (max-width: 540px){
+    .card-style{
+display: block;
+width: auto;
+    }
+    .cart-page-image{
+ 
+        width: 200px;
+        height: 200px;
+    }
+    .cart-page-text{
+        margin-top: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+        font-size: 20px;
+     }
+     .quantity-main-div{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        margin: auto;
+     }
+     .cart-page-remove{
+        display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+
+
+     }
+     .cart-page-remove{
+        font-size: 40px;
+     }
+}
+
+
+@media only screen and (max-width: 425px){
+    .card-style{
+display: block;
+width: auto;
+    }
+    .cart-page-image{
+ 
+        width: 200px;
+        height: 200px;
+    }
+    .cart-page-text{
+        margin-top: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+        font-size: 20px;
+     }
+     .quantity-main-div{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        margin: auto;
+     }
+     .cart-page-remove{
+        display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+
+
+     }
+     .cart-page-remove{
+        font-size: 40px;
+     }
 }
 

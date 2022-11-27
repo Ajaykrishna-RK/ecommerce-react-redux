@@ -41,10 +41,11 @@ const dispatch = useDispatch()
           }
 
   return (
-    <div style={{marginTop:"200px"}}>
+    <div style={{marginTop:"150px"}}>
 <div>{loading && <h1>Loading.....</h1>}</div>
 
-<Grid container>
+<Grid container >
+
 
 
 <Grid item xs={12} sm={12} md={6}>

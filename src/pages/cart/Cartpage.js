@@ -13,12 +13,17 @@ import Button from '../../components/Buttons/Button';
 import { removeFromcart ,decreaseCart,increaseCart,clearCart, totalAmount, calculateTotals} from '../../redux/Cart';
 import { width } from '@mui/system';
 
+
 const cartStyle = {
     display:"flex",
   width:600
     
 }
 
+const totalAmountCard ={
+marginTop:20,
+
+}
 
 
 
@@ -26,7 +31,7 @@ const cartStyle = {
 
 const Cartpage = () => {
   const {cartItems} = useSelector((state)=>state.cart)
-
+  const {cartTotalCount} = useSelector((state)=>state.cart)
   const {cartTotalAmount} =  useSelector((state)=>state.cart)
   
 const dispatch= useDispatch()
@@ -87,7 +92,7 @@ const handleDecrease = (item) =>{
 <div className='cart-page-main'>
 
 <div className='cart-page-main-div' >
-<Card style={cartStyle}>
+<Card className='card-style'>
 <div className='cart-page-image-main'>
     <img src={item.image} className="cart-page-image" alt="" srcset="" />
    
@@ -101,20 +106,20 @@ const handleDecrease = (item) =>{
           <p >
             {item.category}
           </p>
-          <div className='total-price'>
-          <p >
+          <div className=''>
+          <h3 >
             <BiDollar/>  {item.price * item.cartCount}
-          </p>
+          </h3>
           </div>
         </div>
   
         <CardActions >
-      
+      <div className='quantity-main-div'>
         <Button  className="inc-dec-button"  onClick={()=>handleDecrease(item)}>-</Button>
         <div className='count'> <p>Quantity: <span className='counting'>{item.cartCount}</span> </p></div>
 <Button className="inc-dec-button" onClick={()=>handleIncrease(item)}>+</Button>
 
-
+</div>
 
       </CardActions>
     
@@ -144,18 +149,23 @@ const handleDecrease = (item) =>{
 </Grid>
 
 <Grid container>
-      <Grid item xs={12}>
+      <Grid item xs={10}>
         <div className='total-amount-div-main'>
-        <Card style={{width:"400px" ,marginTop:"20px"}}>
-        <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-     <h1>{cartTotalAmount}</h1>
-      </Typography>
+        <div style={totalAmountCard}>
+       
+      
+        <div className="total-main">
+          <ul>
+        <li className='total-items'> Total items : ({cartItems.length})</li>
+        <li className='total-price'>Total:      <BiDollar/>  {cartTotalAmount}</li>
+        </ul>
+        </div>
+      
    
     
-    </CardContent>
+
    
-        </Card>
+        </div>
         </div>
         <div className="clear-cart">
         <Button className="clear-cart-button" onClick={()=>handleClear()}>clearCart</Button>
