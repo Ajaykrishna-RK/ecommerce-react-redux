@@ -37,31 +37,8 @@ const Banner = () => {
   return (
     <>
 
-   
-
-  <div className='grid-div'>
- {/* <Grid container>
-    <Grid item xs={12} sm={6}> */}
-  {/* <div className='banner-text' >
-    <p className='text'>Online Store</p>
-  
-  </div> */}
-{/* </Grid> */}
-{/* 
-<Grid item xs={12} sm={6}> */}
-  <div className='banner-image-main' >
-   
-<p className='banner-text'>Online Shop</p>
- 
-
-  </div>
-<motion.div className='cart-image-main'  variants={banneranimation} initial="hidden" animate="visible">
-<img className='cart-image' src={bannercart} alt="" srcset="" />
-</motion.div>
-
-
-{/* </Grid>
-</Grid> */}
+<div>
+  <img src={bannerImagetwo} alt=""/>
 </div>
     </>
   )

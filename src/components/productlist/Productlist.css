@@ -64,10 +64,6 @@
 
 }
 .add-to-cart{
-   
-   
-  
- 
     margin-left: 5px;
     height: 40px;
     color: #fff;
@@ -77,4 +73,5 @@
     font-size: 12px;
     background-color:#2874f0;
     border-radius: 5px;
+    cursor: pointer;
 }

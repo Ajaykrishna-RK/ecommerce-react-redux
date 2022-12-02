@@ -81,76 +81,51 @@ const handleDecrease = (item) =>{
 <Grid container spacing={2}>
   
 
-
-
-    {cartItems.map((item,key)=>(
-
-
-
-<Grid item xs={12}>
-
-<div className='cart-page-main'>
-
-<div className='cart-page-main-div' >
-<Card className='card-style'>
-<div className='cart-page-image-main'>
-    <img src={item.image} className="cart-page-image" alt="" srcset="" />
-   
-    </div>
-    
-        <div className='cart-page-text'>
-     
-        <p >
-            {item.title}
-          </p>
-          <p >
-            {item.category}
-          </p>
-          <div className=''>
-          <h3 >
-            <BiDollar/>  {item.price * item.cartCount}
-          </h3>
-          </div>
-        </div>
-  
-        <CardActions >
-      <div className='quantity-main-div'>
-        <Button  className="inc-dec-button"  onClick={()=>handleDecrease(item)}>-</Button>
-        <div className='count'> <p>Quantity: <span className='counting'>{item.cartCount}</span> </p></div>
+<Grid item xs={6}>
+<div class="header_fixed" style={{marginTop:"150px"}}>
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th>Image</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {cartItems.map((item,key)=>(
+                <tr>
+                  
+                    <td><img src={item.image} /></td>
+                    <td>{item.title}</td>
+                    <td>{item.price}</td>
+                    <td>
+                      <div className='quantity-main-div'>
+                    <Button  className="inc-dec-button"  onClick={()=>handleDecrease(item)}>-</Button>
+        <div className='count'> <p> <span className='counting'>{item.cartCount}</span> </p></div>
 <Button className="inc-dec-button" onClick={()=>handleIncrease(item)}>+</Button>
-
 </div>
-
-      </CardActions>
+                    </td>
+                    <td>
+                      
     
 
-      <Button className="cart-page-remove" onClick={()=>handleRemove(item)}><BsTrash/></Button>
-     
-     <div>
 
-     </div>
-
-</Card>
+                    </td>
+                </tr>
+                ))}
+            </tbody>
+        </table>
     </div>
 
-</div>
 
-</Grid>
-
+    </Grid>
 
 
-
-
-
-))}
-
-
-
-</Grid>
-
-<Grid container>
-      <Grid item xs={10}>
-        <div className='total-amount-div-main'>
+      <Grid item xs={6}>
+        <div className='total-amount-div-main' style={{marginTop:"150px"}}>
         <div style={totalAmountCard}>
        
       
@@ -179,6 +154,8 @@ const handleDecrease = (item) =>{
 
 
 </div>
+
+
 
 
 

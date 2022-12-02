@@ -11,7 +11,7 @@ import Button from '../Buttons/Button';
 import { addToCart } from '../../redux/Cart';
 import { Link } from 'react-router-dom';
 import { apiDatas } from '../../redux/Fetchapi';
-import {motion,useAnimation} from "framer-motion"
+import {motion,useAnimation, useScroll, useTransform} from "framer-motion"
 import Banner from '../banner/Banner';
 
 
@@ -56,7 +56,7 @@ dispatch(addToCart(product))
 }
 
 
-
+ 
 
 
 
@@ -84,7 +84,7 @@ dispatch(addToCart(product))
 
   <Grid item  xs={12} sm={6} md={3}  key={product.id}>
 
-
+<div>
 
 <Card  id="product-card" >
      
@@ -121,7 +121,7 @@ dispatch(addToCart(product))
 
   </CardActions>
 </Card>  
-  
+</div>
 </Grid>
 
 ))}
