@@ -1,29 +1,21 @@
-import { Card, CardActions, CardContent, CardMedia, Grid, TableBody, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import {  Grid } from '@mui/material'
 
 import {Link } from "react-router-dom";
-import {Table} from 'react-bootstrap'
+
 
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiDollar } from "react-icons/bi";
-import { BsTrash } from "react-icons/bs"
+
 import "./Cartpage.css"
 
 import Button from '../../components/Buttons/Button';
-import { removeFromcart ,decreaseCart,increaseCart,clearCart, totalAmount, calculateTotals} from '../../redux/Cart';
-import { width } from '@mui/system';
+import { removeFromcart ,decreaseCart,increaseCart,clearCart,  calculateTotals} from '../../redux/Cart';
 
 
-const cartStyle = {
-    display:"flex",
-  width:600
-    
-}
 
-const totalAmountCard ={
-marginTop:20,
 
-}
+
 
 
 
@@ -31,7 +23,7 @@ marginTop:20,
 
 const Cartpage = () => {
   const {cartItems} = useSelector((state)=>state.cart)
-  const {cartTotalCount} = useSelector((state)=>state.cart)
+
   const {cartTotalAmount} =  useSelector((state)=>state.cart)
   
 const dispatch= useDispatch()
@@ -99,7 +91,7 @@ const handleDecrease = (item) =>{
             {cartItems.map((item,key)=>(
                 <tr>
                   
-                    <td className='cart-page-image-main'><img className='cart-page-image' src={item.image} /></td>
+                    <td className='cart-page-image-main'><img className='cart-page-image' src={item.image} alt="" /></td>
                     <td className='cart-page-text'>{`${item.title.slice(0,25)}`}...</td>
                     <td className='cart-page-price'>{item.price * item.cartCount}</td>
                     <td>

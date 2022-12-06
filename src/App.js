@@ -1,11 +1,10 @@
 
-import {  useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import './App.css';
 import Header from './components/header/Header';
 import Productlist from './components/productlist/Productlist';
 
-import axios from "axios"
+
 import {  Routes, Route } from "react-router-dom";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
